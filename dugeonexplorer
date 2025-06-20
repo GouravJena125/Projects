@@ -1,0 +1,12 @@
+ 
+**Dungeon Explorer** is a simple text-based adventure game where players navigate through a dangerous dungeon, battle enemies, and search for hidden treasure. Using menu-driven choices, players must strategize to survive encounters, collect items, and escape with the treasure to win.  
+
+
+
+Features 
+✔ Randomized Gameplay: Every run is unique with random encounters (enemies, items, or empty rooms).  
+✔ Health System: Manage your health or risk a "Game Over" from enemy attacks.  
+✔ Inventory System: Collect items like weapons, potions, and the treasure.  
+✔ Win Condition: Escape the dungeon only after finding the treasure.  
+✔ Simple Controls: Choose actions via numbered menus (no complex commands).  
+✔ Python-Based: Easy to run on any system with Python 3 installed.  
