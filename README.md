@@ -1,0 +1,69 @@
+import random
+
+def dungeon_explorer():
+    print("Welcome to Dungeon Explorer!")
+    print("You find yourself at the entrance of a dark dungeon.")
+    print("Your goal is to find the treasure and escape alive.\n")
+    
+    health = 100
+    inventory = ["torch", "rusty sword"]
+    found_treasure = False
+    
+    while health > 0:
+        print(f"\nHealth: {health}")
+        print(f"Inventory: {', '.join(inventory)}")
+        print("\nOptions:")
+        print("1. Go forward")
+        print("2. Check inventory")
+        print("3. Try to escape (if you have treasure)")
+        
+        choice = input("What will you do? (1-3): ")
+        
+        if choice == "1":
+            encounter = random.randint(1, 4)
+            
+            if encounter == 1:
+                print("\nYou find an empty room. Nothing happens.")
+            elif encounter == 2:
+                print("\nA goblin attacks you!")
+                damage = random.randint(5, 20)
+                health -= damage
+                print(f"You take {damage} damage!")
+            elif encounter == 3:
+                item = random.choice(["health potion", "gold coin", "ancient scroll"])
+                print(f"\nYou found a {item}!")
+                inventory.append(item)
+            else:
+                if not found_treasure:
+                    print("\nYou found the treasure chest!")
+                    inventory.append("treasure")
+                    found_treasure = True
+                else:
+                    print("\nYou find a dead end.")
+                    
+        elif choice == "2":
+            print("\nYou check your inventory:")
+            for item in inventory:
+                print(f"- {item}")
+                
+        elif choice == "3":
+            if "treasure" in inventory:
+                print("\nYou escape the dungeon with the treasure! You win!")
+                break
+            else:
+                print("\nYou haven't found the treasure yet!")
+                
+        else:
+            print("\nInvalid choice. Try again.")
+            
+        if health <= 0:
+            print("\nYou have died. Game over!")
+            
+    play_again = input("\nPlay again? (y/n): ")
+    if play_again.lower() == "y":
+        dungeon_explorer()
+    else:
+        print("Thanks for playing!")
+
+# Start the game
+dungeon_explorer()
